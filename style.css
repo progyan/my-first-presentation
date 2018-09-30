@@ -17,6 +17,7 @@ header {
 
 #github:hover {
     box-shadow: 0 0 10px 5px rebeccapurple;
+    src: url(https://assets-cdn.github.com/images/modules/logos_page/Octocat.png);
 }
 
 header h1 {

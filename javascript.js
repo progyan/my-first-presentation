@@ -1,5 +1,5 @@
 const STRINGS = ["Аэрокосмическая инженерия - это основное направление в инженерии, которое занимается вопросами развития летательных и космических аппаратов.     Она состоит из двух основных, и дублирующих друг друга ветвей: авиационной техники и астронавтики.",
-                             "Аэрокосмической инженерией занимается инженер аэрокосмических систем."];
+                             "Аэрокосмической инженерией занимается инженер аэрокосмических систем.",];
             let strN = 0;
             let cursorVisible = true;
             let end = true;
@@ -26,11 +26,16 @@ const STRINGS = ["Аэрокосмическая инженерия - это о�
 
             function print(text){
                 let info = document.getElementById("info");
-                printPiece(text, info);
+                printPiece(text, info, 90);
+            }
+
+            function printFast(text){
+                let info = document.getElementById("info");
+                printPiece(text, info, 50);
             }
 
             
-            function printPiece(text, info){
+            function printPiece(text, info, delay){
                 if(!end)
                     return;
                 document.getElementById("button").classList.add("disabled");
@@ -46,14 +51,17 @@ const STRINGS = ["Аэрокосмическая инженерия - это о�
                         end = true;
                         return;
                     }
-                    setTimeout(printMini, 90);
+                    setTimeout(printMini, delay);
                 }
             }
 
             function handler(){
                 clear();               
                 //print("Аэрокосмической инженерией занимается инженер аэрокосмических систем.");
-                print(STRINGS[strN]);
+                if(STRINGS[strN].length < 200)
+                    print(STRINGS[strN]);
+                else
+                    printFast(STRINGS[strN]);
                 strN++;
                 if(strN >= STRINGS.length){
                     strN = 0;
