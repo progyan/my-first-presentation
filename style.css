@@ -10,6 +10,13 @@ header {
     position: absolute;
     top: 8px;
     right: 8px;
+    box-shadow: 0 0 10px 0px lightgrey;
+    transition-duration: 0.25s;
+    transition-property: box-shadow;
+}
+
+#github:hover {
+    box-shadow: 0 0 10px 5px rebeccapurple;
 }
 
 header h1 {
