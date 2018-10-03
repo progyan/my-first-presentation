@@ -16,7 +16,7 @@
     directionalLight.position.z = 100;
     scene.add( directionalLight );
 
-    var texture = new THREE.TextureLoader().load( "/stars.jpeg" );
+    var texture = new THREE.TextureLoader().load( "stars.jpeg" );
     scene.background = texture;
 
     camera.position.z = 100;
@@ -35,7 +35,7 @@
         // Load a glTF resource
         loader.load(
             // resource URL
-            '/models/scene.gltf',
+            'models/scene.gltf',
             // called when the resource is loaded
             function ( gltf ) {
                 issObject = gltf.scene.children[0];
