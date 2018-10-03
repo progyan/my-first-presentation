@@ -89,3 +89,10 @@ body, html {
 body {
     background-image: url(https://www.edhat.com/sites/default/files/news_image/pexels-photo-998641.jpeg);
 }
+
+#canvas {
+position: absolute;
+top:0px;
+left:0px;
+z-index: -1;
+}
