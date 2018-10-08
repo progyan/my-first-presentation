@@ -52,11 +52,14 @@
                 gltf.cameras; // Array<THREE.Camera>
                 gltf.asset; // Object
 */
+                ISSModelLoaded = true;
+                if(end)
+                    document.getElementById("button").classList.remove("disabled");
             },
             // called while loading is progressing
             function ( xhr ) {
                 // TODO: draw [====-----]
-                console.log( ( xhr.loaded / xhr.total * 100 ) + '% loaded' );
+                console.log( Math.round( xhr.loaded / xhr.total * 100 ) + '% loaded' );
             },
             // called when loading has errors
             function ( error ) {
@@ -143,6 +146,8 @@
     }
 
     function handler(){
+        if(!ISSModelLoaded)
+            return;
         clear();               
         //print("Аэрокосмической инженерией занимается инженер аэрокосмических систем.");
         if(STRINGS[strN].length < 200)
@@ -158,4 +163,7 @@
     //setInterval(startCursor, 500);
     //print("Аэрокосмическая инженерия - это основное направление в инженерии, которое занимается вопросами развития летательных и космических аппаратов.     Она состоит из двух основных, и дублирующих друг друга ветвей: авиационной техники и астронавтики.");
     //print("Папа, помоги исправить ошибку в коде!");
+    let ISSModelLoaded = false;
+    document.getElementById("button").classList.add("disabled");
+    print("ЗАГРУЗКА МОДЕЛИ МКС...");
     handler();
