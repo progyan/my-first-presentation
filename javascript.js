@@ -74,7 +74,7 @@
         }
         if(next){
             camera.rotation.z += 0.03;
-            if(camera.rotation.z > 1){
+            if(camera.rotation.z > 10){
                 camera.rotation.z = 0;
             }
         }
