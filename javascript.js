@@ -68,9 +68,15 @@
     var animate = function () {
         requestAnimationFrame( animate );
         if (issObject) {
-            directionalLight.target = issObject
+            directionalLight.target = issObject;
             issObject.rotation.z += 0.003;
             //camera.lookAt(issObject.position);
+        }
+        if(next){
+            camera.rotation.z += 0.03;
+            if(camera.rotation.z > 1){
+                camera.rotation.z = 0;
+            }
         }
         renderer.render( scene, camera );
     };
@@ -90,6 +96,7 @@
     let strN = 0;
     let cursorVisible = true;
     let end = true;
+    let next = false;
 
     /*function startCursor(){
         let cursor = document.getElementById("cursor");
@@ -143,7 +150,8 @@
     }
 
     function handler(){
-        clear();               
+        clear();   
+        next = true;            
         //print("Аэрокосмической инженерией занимается инженер аэрокосмических систем.");
         if(STRINGS[strN].length < 200)
             print(STRINGS[strN]);
