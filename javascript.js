@@ -1,4 +1,6 @@
 
+    let next = false;
+    
     var scene = new THREE.Scene();
     var camera = new THREE.PerspectiveCamera( 75, window.innerWidth/window.innerHeight, 10, 550 );
 
@@ -73,10 +75,14 @@
             //camera.lookAt(issObject.position);
         }
         if(next){
-            camera.rotation.z += 0.03;
-            if(camera.rotation.z > 10){
-                camera.rotation.z = 0;
+            camera.position.x -= 50;
+            if(camera.position.x > -1 && camera.position.x < 2){
+                camera.position.x = 0;
+                next = false;
             }
+        }
+        if(camera.position.x < -1000){
+            camera.position.x = 1000;
         }
         renderer.render( scene, camera );
     };
@@ -96,7 +102,6 @@
     let strN = 0;
     let cursorVisible = true;
     let end = true;
-    let next = false;
 
     /*function startCursor(){
         let cursor = document.getElementById("cursor");
